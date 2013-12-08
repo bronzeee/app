@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="title">
+    <div class="title" style="display: block;">
         <a class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
         <a class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
     </div>
@@ -39,6 +39,34 @@
             $('#signin').bind('click', function(){
                 console.info($('input').val())
             });
+
+            /*var title = {
+                x = 0,
+                y = 0,
+                isDraging = false
+            };
+            $('div.title').bind('mousedown', function(e){
+                title.isDraging = true;//application.moveTo(100, 100);
+            });
+            $('div.title').bind('mouseup mouseleave', function(e){
+                title.isDraging = false;//application.moveTo(100, 100);
+            });
+            $('div.title').bind('mousemove', function(e){
+                if(title.isDraging){
+                    var offsetX = e.screenX - title.x;
+                    var offsetY = e.screenY - title.y;
+                    application.moveTo(offsetX, offsetX);
+                    title.x = e.screenX;
+                    title.y = e.screenY;
+                }
+            });*/
+            $('div.title a.glyphicon-remove').bind('click', function(){
+                application.quit();
+            });
+            $('div.title a.glyphicon-minus').bind('click', function(){
+                application.minSize();
+            });
+
         });
     </script>
     <!-- Placed at the end of the document so the pages load faster -->
