@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="title">
+        <a class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
+        <a class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
+    </div>
+    <div style="height:150px;display:block;"></div>
+    <div class="container">
+        <h4 class="form-signin-heading">Please sign in</h4>
+        <input type="text" class="form-control" placeholder="Email address" required autofocus>
+        <br/>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" id="signin">Sign in</button>
+
+    </div>
+    <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="../assets/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#signin').bind('click', function(){
+                console.info($('input').val())
+            });
+        });
+    </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
