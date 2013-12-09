@@ -1,6 +1,7 @@
 from PyQt5.QtCore import QObject, pyqtSlot
 
-class Console(QObject): 
+class Console(QObject):
+    
     @pyqtSlot("QString") 
     def info(self, string): 
         print(string)
