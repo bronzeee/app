@@ -7,6 +7,7 @@ from os import getcwd
 
 
 class Window(QWidget):
+    webview = None
 
     def __init__(self, url, width, height, controller=None):
         super(Window, self).__init__()
@@ -15,15 +16,28 @@ class Window(QWidget):
 
         self.webview = QWebView(self)
         self.webview.setGeometry(1, 1, width - 2, height - 2)
+<<<<<<< HEAD
         self.webview.page().mainFrame().addToJavaScriptWindowObject(
             "application", self)
 
         if controller:
             self.webview.page().mainFrame().addToJavaScriptWindowObject(
                 "controller", controller)
+=======
+        self.webview.page().mainFrame().javaScriptWindowObjectCleared.connect(self.javaScriptWindowObject)
+>>>>>>> temp
 
+        self.controller = controller
         # webview.page().mainFrame().evaluateJavaScript("alert(1);")
         self.webview.load(QUrl.fromLocalFile(getcwd() + url))
+<<<<<<< HEAD
+=======
+
+    def javaScriptWindowObject(self):
+        self.webview.page().mainFrame().addToJavaScriptWindowObject('application', self)
+        if self.controller:
+            self.webview.page().mainFrame().addToJavaScriptWindowObject("controller", self.controller)
+>>>>>>> temp
 
     @pyqtSlot()
     def quit(self):
