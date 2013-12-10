@@ -18,6 +18,7 @@ class LoginController(QObject):
         print('username : %s, password : %s, remember_me : %s' % (username , password , remember_me))
 
         if True :
+            form.webview.load(QUrl.fromLocalFile(getcwd() + "/page/content.html"))
             pass
 
 if __name__ == "__main__":
