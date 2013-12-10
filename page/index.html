@@ -13,17 +13,17 @@
 
   <body>
     <div class="title" style="display: block;">
-        <a class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" role="button" style="width: 30px;margin-right:2px;"></a>
-        <a class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" role="button" style="width: 30px;margin-right:2px;"></a>
+        <a class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
+        <a class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" href="#" role="button" style="width: 30px;margin-right:2px;"></a>
     </div>
     <div style="height:150px;display:block;"></div>
     <div class="container">
         <h4 class="form-signin-heading">Please sign in</h4>
-        <input type="text" class="form-control" placeholder="Email address" name="username" required autofocus>
+        <input type="text" class="form-control" placeholder="Email address" required autofocus>
         <br/>
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
+        <input type="password" class="form-control" placeholder="Password" required>
         <label class="checkbox">
-          <input type="checkbox" value="remember-me" name="remember_me"> Remember me
+          <input type="checkbox" value="remember-me"> Remember me
         </label>
         <button class="btn btn-lg btn-primary btn-block" id="signin">Sign in</button>
 
@@ -37,11 +37,7 @@
     <script type="text/javascript">
         $(function(){
             $('#signin').bind('click', function(){
-                controller.login(
-                    $('input[name="username"]').val(), 
-                    $('input[name="password"]').val(), 
-                    $('input[name="remember_me"]').is(':checked'));
-                window.location.href = 'content.html'
+                console.info($('input').val())
             });
 
             /*var title = {
@@ -68,8 +64,9 @@
                 application.quit();
             });
             $('div.title a.glyphicon-minus').bind('click', function(){
-                application.minimize();
+                application.minSize();
             });
+
         });
     </script>
     <!-- Placed at the end of the document so the pages load faster -->

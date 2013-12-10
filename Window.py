@@ -13,17 +13,17 @@ class Window(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.resize(width, height)
 
-        webview = QWebView(self)
-        webview.setGeometry(1, 1, width - 2, height - 2)
-        webview.page().mainFrame().addToJavaScriptWindowObject(
+        self.webview = QWebView(self)
+        self.webview.setGeometry(1, 1, width - 2, height - 2)
+        self.webview.page().mainFrame().addToJavaScriptWindowObject(
             "application", self)
 
         if controller:
-            webview.page().mainFrame().addToJavaScriptWindowObject(
+            self.webview.page().mainFrame().addToJavaScriptWindowObject(
                 "controller", controller)
 
         # webview.page().mainFrame().evaluateJavaScript("alert(1);")
-        webview.load(QUrl.fromLocalFile(getcwd() + url))
+        self.webview.load(QUrl.fromLocalFile(getcwd() + url))
 
     @pyqtSlot()
     def quit(self):

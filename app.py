@@ -20,6 +20,8 @@ class LoginController(QObject):
         if True :
             pass
 
+        return True;
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
