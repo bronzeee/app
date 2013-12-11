@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="title" style="display: block;">
+        <a class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" role="button" style="width: 30px;margin-right:2px;"></a>
+        <a class="btn btn-default btn-xs pull-right glyphicon glyphicon-minus" role="button" style="width: 30px;margin-right:2px;"></a>
+    </div>
+    <div style="height:150px;display:block;"></div>
+    <div class="container">
+        {% include container + ".html" %}
+    </div>
+    <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="../assets/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('div.title a.glyphicon-remove').bind('click', function(){
+                application.quit();
+            });
+            $('div.title a.glyphicon-minus').bind('click', function(){
+                application.minimize();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+{% include "js/" + container + ".js" %}
+    </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

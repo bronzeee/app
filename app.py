@@ -19,6 +19,7 @@ class LoginController(QObject):
 
         if True :
             form.webview.load(QUrl.fromLocalFile(getcwd() + "/page/content.html"))
+            form.resize(600, 600)
             pass
 
         return True;
@@ -27,6 +28,6 @@ if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     controller = LoginController()
-    form = Window("/page/login.html", 250, 600, controller)
+    form = Window("login", 250, 600, controller)
     form.show()
     sys.exit(app.exec_())

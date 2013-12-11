@@ -3,7 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebKit import *
 from PyQt5.QtWebKitWidgets import *
-from os import getcwd
+from jinja2 import Environment, PackageLoader
 
 
 class Window(QWidget):
@@ -19,7 +19,11 @@ class Window(QWidget):
         self.webview.page().mainFrame().javaScriptWindowObjectCleared.connect(self.javaScriptWindowObject)
         self.controller = controller
         # webview.page().mainFrame().evaluateJavaScript("alert(1);")
-        self.webview.load(QUrl.fromLocalFile(getcwd() + url))
+
+        env = Environment(loader=PackageLoader('app', 'templates'))
+        template = env.get_template(url + '.html')
+        self.webview.setHtml(template.render(container=url))
+        # self.webview.load(QUrl.fromLocalFile(getcwd() + url))
 
     def javaScriptWindowObject(self):
         self.webview.page().mainFrame().addToJavaScriptWindowObject('application', self)
