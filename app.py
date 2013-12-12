@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtWebKit import *
 from PyQt5.QtWebKitWidgets import *
 from Window import Window
-from os import getcwd 
+from os import getcwd
 
 
 class LoginController(QObject):
