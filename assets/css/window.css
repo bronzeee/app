@@ -1,6 +1,6 @@
-.title{
+header{
     margin-right: 3px;
 }
-div.title a {
+header a {
     width: 30px !important;
 }
