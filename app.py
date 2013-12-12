@@ -5,7 +5,6 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebKit import *
 from PyQt5.QtWebKitWidgets import *
-from Console import Console
 from Window import Window
 from os import getcwd
 
@@ -18,9 +17,7 @@ class LoginController(QObject):
         print('username : %s, password : %s, remember_me : %s' % (username , password , remember_me))
 
         if True :
-            form.webview.load(QUrl.fromLocalFile(getcwd() + "/page/content.html"))
-            form.resize(600, 600)
-            pass
+            form.load('main')
 
         return True;
 
