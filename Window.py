@@ -19,7 +19,6 @@ class Window(QWidget):
         self.controller = controller
         # webview.page().mainFrame().evaluateJavaScript("alert(1);")
         self.load(url, width, height)
-        # self.webview.load(QUrl.fromLocalFile(getcwd() + url))
 
     def load(self, page, width=None, height=None):
         if width != None and height != None:
@@ -42,7 +41,7 @@ class Window(QWidget):
 
     @pyqtSlot("int", "int")
     def moveTo(self, offsetX, offsetY):
-        self.move(offsetX, offsetY)
+        self.move(self.x() + offsetX, self.y() + offsetY)
 
     @pyqtSlot()
     def minimize(self):

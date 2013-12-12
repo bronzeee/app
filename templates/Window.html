@@ -13,11 +13,13 @@
   </head>
 
   <body>
-    <div class="title pull-right">
-        <a class="btn btn-default btn-xs glyphicon glyphicon-minus" 
-            role="button"></a>
-        <a class="btn btn-danger btn-xs glyphicon glyphicon-remove" 
-            role="button"></a>
+    <div class="title" style="width:100%;display: table;" >
+        <div class="pull-right">
+            <a class="btn btn-default btn-xs glyphicon glyphicon-minus" 
+                role="button"></a>
+            <a class="btn btn-danger btn-xs glyphicon glyphicon-remove" 
+                role="button"></a>
+        </div>
     </div>
     <div class="container">
         {% include container + ".html" %}
@@ -36,6 +38,26 @@
             $('div.title a.glyphicon-minus').bind('click', function(){
                 application.minimize();
             });
+            var move = {
+                isMove : false,
+                screenY : 0,
+                screenX : 0
+            }
+            $(document).bind('mousedown', function(e){
+                move.isMove = true;
+                move.screenX = e.screenX;
+                move.screenY = e.screenY;
+            });
+            $(document).bind('mouseup', function(){
+                move.isMove = false;
+            });
+            $(document).bind('mousemove', function(e){
+                if(move.isMove){
+                    application.moveTo((e.screenX - move.screenX), (e.screenY - move.screenY));
+                    move.screenX = e.screenX;
+                    move.screenY = e.screenY;
+                }
+            })
         });
     </script>
     <script type="text/javascript">
