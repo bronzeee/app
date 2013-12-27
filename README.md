@@ -24,3 +24,4 @@ SmartGit/Hg
 -------------  sublime text 3 plugin ---------------
 
 Python aoto-complate
+<(input)[^>]*>(.|\n)* ?</\1>|<.*?/>
